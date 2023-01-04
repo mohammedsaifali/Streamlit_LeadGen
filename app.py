@@ -11,6 +11,16 @@ import urllib
 import pandas as pd
 from requests_html import HTML
 from requests_html import HTMLSession
+from tld import get_tld
+import requests
+import re
+import csv
+import json
+import pandas as pd
+from bs4 import BeautifulSoup
+from googlesearch import search 
+import streamlit as st
+import base64
 
 class EmailCrawler:
 
@@ -192,6 +202,7 @@ if st.button('submit'):
             crawl = EmailCrawler(urls[i])
             crawl.crawl()
     else:
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'}
         def get_urls(tag, n, language):
             for i in range (n):
                 urls = search(tag, num_results=i, lang=language)
@@ -285,9 +296,7 @@ if st.button('submit'):
             
         except:
             pass
-
-
-                
+         
         # removing duplicates
 
         emails_f = remove_dup_email(emails_f)
