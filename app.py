@@ -299,8 +299,8 @@ if st.button('submit'):
          
         # removing duplicates
 
-        emails_f = remove_dup_email(emails_f)
-        phones_f = remove_dup_email(phones_f)
+        #emails_f = remove_dup_email(emails_f)
+        #phones_f = remove_dup_email(phones_f)
 
         contacts_f['Email']= emails_f
         contacts_f['Phone']= phones_f
